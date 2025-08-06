@@ -6,7 +6,7 @@ export async function fileOpen(
   mode: 'a' | 'r' | 'w',
 ): Promise<any> {
   if (['a', 'w'].includes(mode)) {
-    const { dirPath } = filePaths(...filePath);
+    const { dirPath } = filePaths(filePath);
     await fsPromises.mkdir(dirPath, { recursive: true });
   }
   return fsPromises.open(filePath, mode);

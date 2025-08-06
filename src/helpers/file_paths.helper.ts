@@ -10,8 +10,8 @@ interface FilePathsInterface {
   name: string;
 }
 
-export function filePaths(...userPath: Array<string>): FilePathsInterface {
-  const filePath = path.join(...userPath);
+export function filePaths(userPath: string): FilePathsInterface {
+  const filePath = path.join(userPath);
   const fullPath = filePath.split(/\\|\//iu);
   const fileName = fullPath.pop() || '';
   const dirPath = path.join(...fullPath);

@@ -2,9 +2,9 @@ import * as fs from 'fs';
 
 export async function readByte(
   filePath: string,
-  callback: (arg: any) => Promise<void>,
+  callback: (arg: Buffer) => Promise<void>,
   length = 1,
-): Promise<any> {
+): Promise<void> {
   return new Promise((resolve, reject) => {
     const fileStream = fs.createReadStream(filePath, { highWaterMark: length });
 
@@ -12,14 +12,14 @@ export async function readByte(
 
     fileStream.on('data', async (chunk: string | Buffer) => {
       queue = queue.then(async () => {
-        await callback(chunk);
+        await callback(chunk as Buffer);
       });
     });
 
     fileStream.on('end', async () => {
       await Promise.all([queue]);
       fileStream.destroy();
-      resolve(true);
+      resolve();
     });
 
     fileStream.on('error', (err) => {

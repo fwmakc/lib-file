@@ -3,8 +3,8 @@ import readline from 'readline';
 
 export async function readLine(
   filePath: string,
-  callback: (arg: any) => Promise<void>,
-): Promise<any> {
+  callback: (arg: string) => Promise<void>,
+): Promise<void> {
   return new Promise((resolve, reject) => {
     const fileStream = fs.createReadStream(filePath);
 
@@ -29,7 +29,7 @@ export async function readLine(
     rl.on('close', async () => {
       await Promise.all([queue]);
       fileStream.destroy();
-      resolve(true);
+      resolve();
     });
 
     rl.on('error', (err) => {
