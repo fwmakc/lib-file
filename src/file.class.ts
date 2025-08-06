@@ -89,7 +89,10 @@ export class File {
     return await fsPromises.readFile(this.filePath, 'utf8');
   }
 
-  async readByte(callback: (arg: any) => Promise<void>, length = 1): Promise<any> {
+  async readByte(
+    callback: (arg: any) => Promise<void>,
+    length = 1,
+  ): Promise<any> {
     return readByte(this.filePath, callback, length);
   }
 
