@@ -24,7 +24,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "https://github.com/fwmakc/lib-file.git",
-  "author": "fwmakc <fwmakcpro@yandex.ru>",
+  "author": "fwmakc <fwmakc@mail.ru>",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
