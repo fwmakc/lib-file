@@ -8,16 +8,16 @@ import { fileExists } from './helpers/file_exists.helper';
 import { readByte } from './helpers/read_byte.helper';
 
 export class File {
-  createdAt: number | null;
+  createdAt: number | null = null;
   dirPath: any = null;
-  extension: string;
+  extension = '';
   fileName: any = null;
-  modifiedAt: number | null;
-  name: string;
-  mimeType: string;
-  size: number | null;
+  modifiedAt: number | null = null;
+  name = '';
+  mimeType = '';
+  size: number | null = null;
 
-  private filePath: string;
+  private filePath = '';
   private fileHandle: any;
 
   constructor(filePath: string) {
