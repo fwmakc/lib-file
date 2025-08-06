@@ -326,3 +326,7 @@ await file.readByte(async (byte) => {
 
 await output.close();
 ```
+
+# Лицензия
+
+Лицензия MIT, 2025
